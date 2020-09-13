@@ -108,13 +108,7 @@
             "error": "O NCA solicitado não está corretamente assinado: "
         },
         "finished": [
-            "Disfrute da \"cópia legal\"!",
-            "Tenho a certeza que depois de experimentar o jogo irá adorar comprá-lo!",
-            "Comprou o joguinho certo? A Nintendo agradece muito a aquisição!",
-            "Ultrapassar DRM é brutal, não é?",
-            "Provavelmente foram salvas seis árvores ao não comprar este jogo! Todo o plástico vai para algum lado!",
-            "Os ninjas da Nintendo foram enviados para sua localização atual.",
-            "Nem foi necessário discutirmos sobre idiologias políticas para chegarmos até aqui!"
+            "Your game was successfully installed."
         ]
     },
     "sig": {

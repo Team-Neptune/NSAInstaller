@@ -108,13 +108,7 @@
             "error": "Il file NCA seguente non è firmato correttamente: "
         },
         "finished": [
-            "Goditi i tuoi \"backup legali\"!",
-            "Sono sicuro che dopo che lo proverai, ti divertirai tantissimo a comprarlo!",
-            "Hai comprato il giochino, vero? Nintendo-san ti linglazia pel il tuo acquisto!",
-            "Bypassare il DRM è fantastico, vero?",
-            "Probabilmente hai salvato sei alberi non comprando il gioco! Tutta quella plastica va da qualche parte!",
-            "I ninja di Nintendo sono stati mandati alla tua attuale posizione.",
-            "E non abbiamo nemmeno dovuto farti mandare giù un'ideologia politica per farti arrivare qui!"
+            "Your game was successfully installed."
         ]
     },
     "sig": {
