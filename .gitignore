@@ -3,5 +3,5 @@
 *.nro
 build
 .vscode
-.psd
-.zip
+*.psd
+*.zip
