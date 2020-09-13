@@ -1,5 +1,5 @@
 {
-    "main":{
+    "main": {
         "menu": {
             "sd": "通过 SD 卡安装",
             "net": "通过局域网或网络安装",
@@ -175,7 +175,7 @@
         },
         "credits": {
             "title": "致谢以下朋友！",
-            "desc": "- 感谢 HookedBehemoth 贡献了诸多代码\n- 感谢 Adubbz 及其他贡献者编写了 Tinfoil\n- 感谢 XorTroll 编写了 Plutonium 框架和 Goldleaf\n- 感谢 blawar 和 nicoboss 添加了 NSZ 支持\n- 感谢来自 AtlasNX 的诸多组件\n- 感谢来自 RetroNX 的诸多组件\n- 感谢 namako8982 提供了 Momiji 插图\n- 感谢 TheXzoron (baka)"
+            "desc": "- Huntereb & HookedBehemoth for the original Awoo installer \n- XorTroll for the plutonium framework"
         },
         "language": {
             "title": "选择 Awoo Installer 语言",

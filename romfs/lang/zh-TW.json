@@ -1,5 +1,5 @@
 {
-    "main":{
+    "main": {
         "menu": {
             "sd": "通過SD卡安裝",
             "net": "通過網路安裝",
@@ -29,7 +29,6 @@
         },
         "buttons": "\ue0e0 選擇 \ue0e1 退出"
     },
-    
     "inst": {
         "net": {
             "help": {
@@ -176,7 +175,7 @@
         },
         "credits": {
             "title": "感謝下列人士",
-            "desc": "- 來自HookedBehemoth 的巨大貢獻\n- Adubbz 以及其他為Tinfoil貢獻過的人\n- XorTroll 強大的Plutonium庫和金葉子工具\n- blawar (wife strangulator)和nicoboss 對NSZ 格式的支持\n- 來自AtlasNX Discuck的好心人 (至少其中一部分)\n- 來自RetroNX Discuck的好心人 (雖然沒直接參與)\n- 來自namako8982的Momiji美術\n- 也特別感謝TheXzoron"
+            "desc": "- Huntereb & HookedBehemoth for the original Awoo installer \n- XorTroll for the plutonium framework"
         },
         "language": {
             "title": "選擇語言",

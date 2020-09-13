@@ -1,5 +1,5 @@
 {
-    "main":{
+    "main": {
         "menu": {
             "sd": "Installer à partir de la carte SD",
             "net": "Installer à partir d'un LAN ou d'internet",
@@ -175,7 +175,7 @@
         },
         "credits": {
             "title": "Merci aux personnes suivantes !",
-            "desc": "- HookedBehemoth pour BEAUCOUP de contributions\n- Adubbz et d'autres contributeurs pour Tinfoil\n- XorTroll pour Plutonium et Goldleaf\n- blawar (étrangleur de femme) et nicoboss pour le support des NSZ\n- Les personnes aimables du Discord AtlasNX (ou du moins certains d'entre eux)\n- Les gens aussi aimables du Discord RetroNX (sans participation directe)\n- namako8982 pour l'art Momiji \n- TheXzoron pour avoir été un baka"
+            "desc": "- Huntereb & HookedBehemoth for the original Awoo installer \n- XorTroll for the plutonium framework"
         },
         "language": {
             "title": "Sélectionnez la langue de Awoo Installer",

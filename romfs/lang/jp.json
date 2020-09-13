@@ -1,5 +1,5 @@
 {
-    "main":{
+    "main": {
         "menu": {
             "sd": "SDカードからインストール",
             "net": "ネットワーク経由でインストール",
@@ -175,7 +175,7 @@
         },
         "credits": {
             "title": "以下の方々に感謝します!",
-            "desc": "- HookedBehemoth for A LOT of contributions\n- Adubbz and other contributors for Tinfoil\n- XorTroll for Plutonium and Goldleaf\n- blawar (wife strangulator) and nicoboss for NSZ support\n- The kind folks at the AtlasNX Discuck (or at least some of them)\n- The also kind folks at the RetroNX Discuck (of no direct involvement)\n- namako8982 for the Momiji art\n- TheXzoron for being a baka"
+            "desc": "- Huntereb & HookedBehemoth for the original Awoo installer \n- XorTroll for the plutonium framework"
         },
         "language": {
             "title": "Awoo Installerの言語を選択",
