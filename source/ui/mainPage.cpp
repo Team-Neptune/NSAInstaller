@@ -49,10 +49,10 @@ namespace inst::ui
             this->SetBackgroundImage(inst::config::appDir + "/background.png");
         else
             this->SetBackgroundImage("romfs:/images/background.jpg");
-        this->topRect = Rectangle::New(0, 0, 1280, 94, COLOR("#170909FF"));
+        this->topRect = Rectangle::New(0, 0, 1280, 94, COLOR("#222f3e"));
         this->botRect = Rectangle::New(0, 659, 1280, 61, COLOR("#17090980"));
         this->titleImage = Image::New(0, 0, "romfs:/images/logo.png");
-        this->appVersionText = TextBlock::New(480, 49, "v" + inst::config::appVersion, 22);
+        this->appVersionText = TextBlock::New(420, 49, "v" + inst::config::appVersion, 22);
         this->appVersionText->SetColor(COLOR("#FFFFFFFF"));
         this->butText = TextBlock::New(10, 678, "main.buttons"_lang, 24);
         this->butText->SetColor(COLOR("#FFFFFFFF"));
