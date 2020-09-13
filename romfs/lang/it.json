@@ -25,7 +25,7 @@
         },
         "applet": {
             "title": "Applet Mode non è supportata",
-            "desc": "Puoi incontrare problemi utilizzando Awoo Installer in Applet Mode. Se\nriscontri problemi, ti prego di utilizzare Awoo Installer avviandolo attraverso un gioco\ngià installato (tieni premuto R mentre avvii un gioco)!"
+            "desc": "Puoi incontrare problemi utilizzando NSXInstaller in Applet Mode. Se\nriscontri problemi, ti prego di utilizzare NSXInstaller avviandolo attraverso un gioco\ngià installato (tieni premuto R mentre avvii un gioco)!"
         },
         "buttons": "\ue0e0 Seleziona    \ue0e1 Esci"
     },
@@ -33,7 +33,7 @@
         "net": {
             "help": {
                 "title": "Aiuto",
-                "desc": "I file possono essere installati via remoto da altri dispositivi utilizzando programmi come\nNS-USBloader in modialità \"Tinfoil\". Per inviare file, apri uno\ndi questi software sul tuo PC o sul tuo smartphone, inserisci\nl'indirizzo IP (mostrato sullo schermo), seleziona i file e poi inviali alla\nconsole! Se il software che usi non ti permette di selezionare file\nspecifici, prova a cambiare l'estensione del file in qualcosa che venga accettato dal software.\nAwoo Installer non legge l'estensione del file durante l'installazione via internet!\n\nSe proprio non riesci, copia i file nella SD e seleziona\nl'opzione \"Installa dalla SD\" dal menù principale!"
+                "desc": "I file possono essere installati via remoto da altri dispositivi utilizzando programmi come\nNS-USBloader in modialità \"Tinfoil\". Per inviare file, apri uno\ndi questi software sul tuo PC o sul tuo smartphone, inserisci\nl'indirizzo IP (mostrato sullo schermo), seleziona i file e poi inviali alla\nconsole! Se il software che usi non ti permette di selezionare file\nspecifici, prova a cambiare l'estensione del file in qualcosa che venga accettato dal software.\nNSXInstaller non legge l'estensione del file durante l'installazione via internet!\n\nSe proprio non riesci, copia i file nella SD e seleziona\nl'opzione \"Installa dalla SD\" dal menù principale!"
             },
             "src": {
                 "title": "Da dove vuoi installare?",
@@ -103,7 +103,7 @@
         },
         "nca_verify": {
             "title": "Rilevata firma NCA non valida!",
-            "desc": "Software firmati impropriamente dovrebbero essere installati solo da fonti\nsicure. I file che contengono repack di cartucce e DLC mostreranno sempre\nquesto avviso. Puoi disabilitarlo dalle impostazioni di Awoo Installer.\n\nSei sicuro di voler continuare l'installazione?",
+            "desc": "Software firmati impropriamente dovrebbero essere installati solo da fonti\nsicure. I file che contengono repack di cartucce e DLC mostreranno sempre\nquesto avviso. Puoi disabilitarlo dalle impostazioni di NSXInstaller.\n\nSei sicuro di voler continuare l'installazione?",
             "opt1": "Sì, comprendo il rischio",
             "error": "Il file NCA seguente non è firmato correttamente: "
         },
@@ -127,7 +127,7 @@
         "backup_failed": "Non è stato possibile effettuare il backup del file \"patches.ini\" di Hekate! Installare comunque?",
         "backup_failed_desc": "Se non usi Hekate puoi ignorare questo avviso.",
         "download_failed": "Non è stato possibile scaricare le SigPatches",
-        "download_failed_desc": "Puoi aver utilizzato una fonte non valida nelle impostazioni di Awoo Installer,\no la fonte potrebbe non essere raggiungibile al momento.",
+        "download_failed_desc": "Puoi aver utilizzato una fonte non valida nelle impostazioni di NSXInstaller,\no la fonte potrebbe non essere raggiungibile al momento.",
         "version_text2": "Le SigPatches sono state aggiornate per la versione corrente di HOS ",
         "install_complete": "Installazione completata!",
         "complete_desc": "Riavvia la console per applicare i cambiamenti",
@@ -146,11 +146,11 @@
             "nca_verify": "Verifica le firme NCA prima dell'installazione",
             "boost_mode": "Abilita la \"boost mode\" durante le installazioni",
             "ask_delete": "Chiedi di cancellare i file originale dopo l'installazione",
-            "auto_update": "Controlla aggiornamenti di Awoo Installer automaticamente",
+            "auto_update": "Controlla aggiornamenti di NSXInstaller automaticamente",
             "gay_option": "Rimuovi anime",
             "sig_url": "Fonte URL SigPatches: ",
             "language": "Lingua: ",
-            "check_update": "Controlla aggiornamenti di Awoo Installer ora",
+            "check_update": "Controlla aggiornamenti di NSXInstaller ora",
             "credits": "Crediti"
         },
         "nca_warn": {
@@ -161,28 +161,28 @@
         "sig_hint": "Inserisci l'URL da cui ottenere le SigPatches",
         "update": {
             "title": "Aggiornamento disponibile",
-            "desc0": "Awoo Installer ",
+            "desc0": "NSXInstaller ",
             "desc1": " è disponibile adesso! Pronto per aggiornare?",
             "opt0": "Aggiorna",
-            "top_info": "Aggiornamento ad Awoo Installer ",
-            "bot_info": "Sto scaricando Awoo Installer ",
-            "bot_info2": "Sto estraendo Awoo Installer ",
+            "top_info": "Aggiornamento ad NSXInstaller ",
+            "bot_info": "Sto scaricando NSXInstaller ",
+            "bot_info2": "Sto estraendo NSXInstaller ",
             "complete": "Aggiornamento completato!",
             "failed": "Aggiornamento fallito!",
             "end_desc": "Il software verrà chiuso.",
             "title_check_fail": "Nessun aggiornamento disponibile",
-            "desc_check_fail": "Stai usando l'ultima versione di Awoo Installer!"
+            "desc_check_fail": "Stai usando l'ultima versione di NSXInstaller!"
         },
         "credits": {
             "title": "Un ringraziamento alle seguenti persone!",
-            "desc": "- Huntereb & HookedBehemoth for the original Awoo installer \n- XorTroll for the plutonium framework"
+            "desc": "- Huntereb & HookedBehemoth for the original NSXInstaller \n- XorTroll for the plutonium framework"
         },
         "language": {
-            "title": "Seleziona la lingua di Awoo Installer",
+            "title": "Seleziona la lingua di NSXInstaller",
             "desc": "Il software verrà chiuso dopo aver cambiato la lingua. Premi B per annullare.",
             "system_language": "Default di sistema"
         },
-        "title": "Cambia le impostazioni di Awoo Installer!",
+        "title": "Cambia le impostazioni di NSXInstaller!",
         "buttons": "\ue0e0 Seleziona/Cambia    \ue0e1 Annulla"
     },
     "common": {

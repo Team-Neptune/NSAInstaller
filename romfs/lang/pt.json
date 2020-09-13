@@ -25,7 +25,7 @@
         },
         "applet": {
             "title": "Modo applet não suportado",
-            "desc": "Poderá ter problemas se usar o Awoo Installer em modo Applet. Se\ntiver problemas, execute o Awoo Installer através de um título\ninstalado (mantenha R primido enquanto inicia um jogo)!"
+            "desc": "Poderá ter problemas se usar o NSXInstaller em modo Applet. Se\ntiver problemas, execute o NSXInstaller através de um título\ninstalado (mantenha R primido enquanto inicia um jogo)!"
         },
         "buttons": "\ue0e0 Selecionar    \ue0e1 Sair"
     },
@@ -33,7 +33,7 @@
         "net": {
             "help": {
                 "title": "Ajuda",
-                "desc": "Os Ficheiros podem ser instalados remotamente a partir de outros dispositivos usando ferramentas como o\nNS-USBloader em modo Tinfoil. Para enviar ficheiros para a Switch, abra um\ndos softwares compatíveis no PC ou no telemóvel, insira o\n endreço de IP da Switch (aparece no ecrã) selecione os ficheiros e envie para\na consola! Se não conseguir selecionar um tipo de ficheiro, tente renomeá-lo para uma extensão compatível.\nO Awoo Installer não considera a extensão nas instalações de rede!\n\nSe tiver problemas ou configurar, apenas copie os ficheiros para o cartão SD\ne tente a opção \"Instalação através do cartão SD\" presente no menu principal!"
+                "desc": "Os Ficheiros podem ser instalados remotamente a partir de outros dispositivos usando ferramentas como o\nNS-USBloader em modo Tinfoil. Para enviar ficheiros para a Switch, abra um\ndos softwares compatíveis no PC ou no telemóvel, insira o\n endreço de IP da Switch (aparece no ecrã) selecione os ficheiros e envie para\na consola! Se não conseguir selecionar um tipo de ficheiro, tente renomeá-lo para uma extensão compatível.\nO NSXInstaller não considera a extensão nas instalações de rede!\n\nSe tiver problemas ou configurar, apenas copie os ficheiros para o cartão SD\ne tente a opção \"Instalação através do cartão SD\" presente no menu principal!"
             },
             "src": {
                 "title": "Deseja instalar através de onde?",
@@ -103,7 +103,7 @@
         },
         "nca_verify": {
             "title": "Detetada assinatura NCA inválida!",
-            "desc": "O software não assinado corretamente deverá ser instalado apenas de fontes\nconfiáveis. Ficheiros que contiverem repaks de cartuchos ou desbloqueadores de DLC mostrarão\nsempre esta mensagem. Esta verificação pode ser desligada nas definições do Awoo Installer.\n\nTem a certeza que deseja continuar a instalação?",
+            "desc": "O software não assinado corretamente deverá ser instalado apenas de fontes\nconfiáveis. Ficheiros que contiverem repaks de cartuchos ou desbloqueadores de DLC mostrarão\nsempre esta mensagem. Esta verificação pode ser desligada nas definições do NSXInstaller.\n\nTem a certeza que deseja continuar a instalação?",
             "opt1": "Sim, eu compreendo os riscos",
             "error": "O NCA solicitado não está corretamente assinado: "
         },
@@ -127,7 +127,7 @@
         "backup_failed": "Não foi possível salvaguardar o patches.ini do Hekate! Instalar mesmo assim?",
         "backup_failed_desc": "Se não usar Hekate pode ignorar este aviso.",
         "download_failed": "Impossível trasnferir os patches de assinaturas",
-        "download_failed_desc": "Talvez tenha definido uma fonte errada nas definições do Awoo Installer,\nou o servidor está apenas em baixo neste momento.",
+        "download_failed_desc": "Talvez tenha definido uma fonte errada nas definições do NSXInstaller,\nou o servidor está apenas em baixo neste momento.",
         "version_text2": "Os patches de assinaturas foram atualizados para funcionar até à versão ",
         "install_complete": "Instalação completa!",
         "complete_desc": "Reinicie a consola para aplicar",
@@ -146,11 +146,11 @@
             "nca_verify": "Verificar a assinatura NCA antes da instalação",
             "boost_mode": "Ativar \"boost mode\" durante as instalações",
             "ask_delete": "Questionar a eliminação dos ficheiros orginais depois da instalação",
-            "auto_update": "Procurar atualizações do Awoo Installer automaticamente",
+            "auto_update": "Procurar atualizações do NSXInstaller automaticamente",
             "gay_option": "Remover animé",
             "sig_url": "URL da fonte dos patches de assinaturas: ",
             "language": "Idioma: ",
-            "check_update": "Procurar atualizações do Awoo Installer",
+            "check_update": "Procurar atualizações do NSXInstaller",
             "credits": "Créditos"
         },
         "nca_warn": {
@@ -161,28 +161,28 @@
         "sig_hint": "Introduza o URL para obter os patches de assinaturas",
         "update": {
             "title": "Atualização disponível",
-            "desc0": "Awoo Installer ",
+            "desc0": "NSXInstaller ",
             "desc1": " está disponível! Pronto para atualizar?",
             "opt0": "Atualizar",
-            "top_info": "A atualizar o Awoo Installer ",
-            "bot_info": "A transferir o Awoo Installer ",
-            "bot_info2": "A extrair o Awoo Installer ",
+            "top_info": "A atualizar o NSXInstaller ",
+            "bot_info": "A transferir o NSXInstaller ",
+            "bot_info2": "A extrair o NSXInstaller ",
             "complete": "Atulização completa!",
             "failed": "Atualização falhada!",
             "end_desc": "O software será encerrado.",
             "title_check_fail": "Sem atualizações",
-            "desc_check_fail": "Esta é a versão mais recente do Awoo Installer!"
+            "desc_check_fail": "Esta é a versão mais recente do NSXInstaller!"
         },
         "credits": {
             "title": "Agradecimentos às seguintes pessoas!",
-            "desc": "- Huntereb & HookedBehemoth for the original Awoo installer \n- XorTroll for the plutonium framework"
+            "desc": "- Huntereb & HookedBehemoth for the original NSXInstaller \n- XorTroll for the plutonium framework"
         },
         "language": {
-            "title": "Selecione o idioma do Awoo Installer",
+            "title": "Selecione o idioma do NSXInstaller",
             "desc": "O software será encerrado depois de alterar o idioma. Pressione B para cancelar.",
             "system_language": "Sistema"
         },
-        "title": "Alteração de deifinições do Awoo Installer!",
+        "title": "Alteração de deifinições do NSXInstaller!",
         "buttons": "\ue0e0 Selecionar/Alterar    \ue0e1 Cancelar"
     },
     "common": {
