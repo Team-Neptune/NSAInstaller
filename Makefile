@@ -42,9 +42,9 @@ BUILD		:=	build
 SOURCES		:=	source source/ui source/data source/install source/nx source/nx/ipc source/util
 DATA		:=	data
 INCLUDES	:=	include include/ui include/data include/install include/nx include/nx/ipc include/util include/Plutonium/Plutonium/Output-switch/include
-APP_TITLE	:=	Awoo Installer
-APP_AUTHOR	:=	Huntereb & Behemoth
-APP_VERSION	:=	1.3.3
+APP_TITLE	:=	NSXInstaller
+APP_AUTHOR	:=	Team Neptune, Huntereb & Behemoth
+APP_VERSION	:=	1.0.0
 ROMFS		:=	romfs
 
 #---------------------------------------------------------------------------------
