@@ -37,11 +37,13 @@ SOFTWARE.
 #include "ui/usbInstPage.hpp"
 #include "ui/instPage.hpp"
 
-namespace inst::ui {
+namespace inst::ui
+{
     extern MainApplication *mainApp;
 }
 
-namespace usbInstStuff {
+namespace usbInstStuff
+{
     struct TUSHeader
     {
         u32 magic; // TUL0 (Tinfoil Usb List 0)
@@ -49,30 +51,38 @@ namespace usbInstStuff {
         u64 padding;
     } PACKED;
 
-    int bufferData(void* buf, size_t size, u64 timeout = 5000000000)
+    int bufferData(void *buf, size_t size, u64 timeout = 5000000000)
     {
-        u8* tempBuffer = (u8*)memalign(0x1000, size);
-        if (tin::util::USBRead(tempBuffer, size, timeout) == 0) return 0;
+        u8 *tempBuffer = (u8 *)memalign(0x1000, size);
+        if (tin::util::USBRead(tempBuffer, size, timeout) == 0)
+            return 0;
         memcpy(buf, tempBuffer, size);
         free(tempBuffer);
         return size;
     }
 
-    std::vector<std::string> OnSelected() {
+    std::vector<std::string> OnSelected()
+    {
         TUSHeader header;
-        while(true) {
-            if (bufferData(&header, sizeof(TUSHeader), 500000000) != 0) break;
+        while (true)
+        {
+            if (bufferData(&header, sizeof(TUSHeader), 500000000) != 0)
+                break;
             hidScanInput();
             u64 kDown = hidKeysDown(CONTROLLER_P1_AUTO);
-            if (kDown & KEY_B) return {};
-            if (kDown & KEY_X) inst::ui::mainApp->CreateShowDialog("inst.usb.help.title"_lang, "inst.usb.help.desc"_lang, {"common.ok"_lang}, true);
-            if (inst::util::getUsbState() != 5) return {};
+            if (kDown & KEY_B)
+                return {};
+            if (kDown & KEY_X)
+                inst::ui::mainApp->CreateShowDialog("inst.usb.help.title"_lang, "inst.usb.help.desc"_lang, {"common.ok"_lang}, true);
+            if (inst::util::getUsbState() != 5)
+                return {};
         }
 
-        if (header.magic != 0x304C5554) return {};
+        if (header.magic != 0x304C5554)
+            return {};
 
         std::vector<std::string> titleNames;
-        char* titleNameBuffer = (char*)memalign(0x1000, header.titleListSize + 1);
+        char *titleNameBuffer = (char *)memalign(0x1000, header.titleListSize + 1);
         memset(titleNameBuffer, 0, header.titleListSize + 1);
 
         tin::util::USBRead(titleNameBuffer, header.titleListSize, 10000000000);
@@ -80,7 +90,8 @@ namespace usbInstStuff {
         // Split the string up into individual title names
         std::stringstream titleNamesStream(titleNameBuffer);
         std::string segment;
-        while (std::getline(titleNamesStream, segment, '\n')) titleNames.push_back(segment);
+        while (std::getline(titleNamesStream, segment, '\n'))
+            titleNames.push_back(segment);
         free(titleNameBuffer);
         std::sort(titleNames.begin(), titleNames.end(), inst::util::ignoreCaseCompare);
 
@@ -94,30 +105,38 @@ namespace usbInstStuff {
         bool nspInstalled = true;
         NcmStorageId m_destStorageId = NcmStorageId_SdCard;
 
-        if (ourStorage) m_destStorageId = NcmStorageId_BuiltInUser;
+        if (ourStorage)
+            m_destStorageId = NcmStorageId_BuiltInUser;
         unsigned int fileItr;
 
         std::vector<std::string> fileNames;
-        for (long unsigned int i = 0; i < ourTitleList.size(); i++) {
+        for (long unsigned int i = 0; i < ourTitleList.size(); i++)
+        {
             fileNames.push_back(inst::util::shortenString(inst::util::formatUrlString(ourTitleList[i]), 40, true));
         }
 
         std::vector<int> previousClockValues;
-        if (inst::config::overClock) {
+        if (inst::config::overClock)
+        {
             previousClockValues.push_back(inst::util::setClockSpeed(0, 1785000000)[0]);
             previousClockValues.push_back(inst::util::setClockSpeed(1, 76800000)[0]);
             previousClockValues.push_back(inst::util::setClockSpeed(2, 1600000000)[0]);
         }
 
-        try {
-            for (fileItr = 0; fileItr < ourTitleList.size(); fileItr++) {
+        try
+        {
+            for (fileItr = 0; fileItr < ourTitleList.size(); fileItr++)
+            {
                 inst::ui::instPage::setTopInstInfoText("inst.info_page.top_info0"_lang + fileNames[fileItr] + "inst.usb.source_string"_lang);
                 std::unique_ptr<tin::install::Install> installTask;
 
-                if (ourTitleList[fileItr].compare(ourTitleList[fileItr].size() - 3, 2, "xc") == 0) {
+                if (ourTitleList[fileItr].compare(ourTitleList[fileItr].size() - 3, 2, "xc") == 0)
+                {
                     auto usbXCI = std::make_shared<tin::install::xci::USBXCI>(ourTitleList[fileItr]);
                     installTask = std::make_unique<tin::install::xci::XCIInstallTask>(m_destStorageId, inst::config::ignoreReqVers, usbXCI);
-                } else {
+                }
+                else
+                {
                     auto usbNSP = std::make_shared<tin::install::nsp::USBNSP>(ourTitleList[fileItr]);
                     installTask = std::make_unique<tin::install::nsp::NSPInstall>(m_destStorageId, inst::config::ignoreReqVers, usbNSP);
                 }
@@ -130,37 +149,42 @@ namespace usbInstStuff {
                 installTask->Begin();
             }
         }
-        catch (std::exception& e) {
+        catch (std::exception &e)
+        {
             LOG_DEBUG("Failed to install");
             LOG_DEBUG("%s", e.what());
             fprintf(stdout, "%s", e.what());
             inst::ui::instPage::setInstInfoText("inst.info_page.failed"_lang + fileNames[fileItr]);
             inst::ui::instPage::setInstBarPerc(0);
-            std::thread audioThread(inst::util::playAudio,"romfs:/audio/bark.wav");
+            std::thread audioThread(inst::util::playAudio, "romfs:/audio/smw_pause.wav");
             inst::ui::mainApp->CreateShowDialog("inst.info_page.failed"_lang + fileNames[fileItr] + "!", "inst.info_page.failed_desc"_lang + "\n\n" + (std::string)e.what(), {"common.ok"_lang}, true);
             audioThread.join();
             nspInstalled = false;
         }
 
-        if (previousClockValues.size() > 0) {
+        if (previousClockValues.size() > 0)
+        {
             inst::util::setClockSpeed(0, previousClockValues[0]);
             inst::util::setClockSpeed(1, previousClockValues[1]);
             inst::util::setClockSpeed(2, previousClockValues[2]);
         }
 
-        if(nspInstalled) {
+        if (nspInstalled)
+        {
             tin::util::USBCmdManager::SendExitCmd();
             inst::ui::instPage::setInstInfoText("inst.info_page.complete"_lang);
             inst::ui::instPage::setInstBarPerc(100);
-            std::thread audioThread(inst::util::playAudio,"romfs:/audio/awoo.wav");
-            if (ourTitleList.size() > 1) inst::ui::mainApp->CreateShowDialog(std::to_string(ourTitleList.size()) + "inst.info_page.desc0"_lang, Language::GetRandomMsg(), {"common.ok"_lang}, true);
-            else inst::ui::mainApp->CreateShowDialog(fileNames[0] + "inst.info_page.desc1"_lang, Language::GetRandomMsg(), {"common.ok"_lang}, true);
+            std::thread audioThread(inst::util::playAudio, "romfs:/audio/smw_1-up.wav");
+            if (ourTitleList.size() > 1)
+                inst::ui::mainApp->CreateShowDialog(std::to_string(ourTitleList.size()) + "inst.info_page.desc0"_lang, Language::GetRandomMsg(), {"common.ok"_lang}, true);
+            else
+                inst::ui::mainApp->CreateShowDialog(fileNames[0] + "inst.info_page.desc1"_lang, Language::GetRandomMsg(), {"common.ok"_lang}, true);
             audioThread.join();
         }
-        
+
         LOG_DEBUG("Done");
         inst::ui::instPage::loadMainMenu();
         inst::util::deinitInstallServices();
         return;
     }
-}
+} // namespace usbInstStuff

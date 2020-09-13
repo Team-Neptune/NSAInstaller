@@ -38,14 +38,14 @@ SOFTWARE.
 #include "util/lang.hpp"
 #include "ui/MainApplication.hpp"
 
-namespace inst::ui {
-     extern MainApplication *mainApp;
+namespace inst::ui
+{
+    extern MainApplication *mainApp;
 }
 
 namespace tin::install::nsp
 {
-    NSPInstall::NSPInstall(NcmStorageId destStorageId, bool ignoreReqFirmVersion, const std::shared_ptr<NSP>& remoteNSP) :
-        Install(destStorageId, ignoreReqFirmVersion), m_NSP(remoteNSP)
+    NSPInstall::NSPInstall(NcmStorageId destStorageId, bool ignoreReqFirmVersion, const std::shared_ptr<NSP> &remoteNSP) : Install(destStorageId, ignoreReqFirmVersion), m_NSP(remoteNSP)
     {
         m_NSP->RetrieveHeader();
     }
@@ -54,7 +54,8 @@ namespace tin::install::nsp
     {
         std::vector<std::tuple<nx::ncm::ContentMeta, NcmContentInfo>> CNMTList;
 
-        for (const PFS0FileEntry* fileEntry : m_NSP->GetFileEntriesByExtension("cnmt.nca")) {
+        for (const PFS0FileEntry *fileEntry : m_NSP->GetFileEntriesByExtension("cnmt.nca"))
+        {
             std::string cnmtNcaName(m_NSP->GetFileEntryName(fileEntry));
             NcmContentId cnmtContentId = tin::util::GetNcaIdFromString(cnmtNcaName);
             size_t cnmtNcaSize = fileEntry->fileSize;
@@ -69,43 +70,49 @@ namespace tin::install::nsp
 
             NcmContentInfo cnmtContentInfo;
             cnmtContentInfo.content_id = cnmtContentId;
-            *(u64*)&cnmtContentInfo.size = cnmtNcaSize & 0xFFFFFFFFFFFF;
+            *(u64 *)&cnmtContentInfo.size = cnmtNcaSize & 0xFFFFFFFFFFFF;
             cnmtContentInfo.content_type = NcmContentType_Meta;
 
-            CNMTList.push_back( { tin::util::GetContentMetaFromNCA(cnmtNCAFullPath), cnmtContentInfo } );
+            CNMTList.push_back({tin::util::GetContentMetaFromNCA(cnmtNCAFullPath), cnmtContentInfo});
         }
 
         return CNMTList;
     }
 
-    void NSPInstall::InstallNCA(const NcmContentId& ncaId)
+    void NSPInstall::InstallNCA(const NcmContentId &ncaId)
     {
-        const PFS0FileEntry* fileEntry = m_NSP->GetFileEntryByNcaId(ncaId);
+        const PFS0FileEntry *fileEntry = m_NSP->GetFileEntryByNcaId(ncaId);
         std::string ncaFileName = m_NSP->GetFileEntryName(fileEntry);
 
-        #ifdef NXLINK_DEBUG
+#ifdef NXLINK_DEBUG
         size_t ncaSize = fileEntry->fileSize;
         LOG_DEBUG("Installing %s to storage Id %u\n", ncaFileName.c_str(), m_destStorageId);
-        #endif
+#endif
 
         std::shared_ptr<nx::ncm::ContentStorage> contentStorage(new nx::ncm::ContentStorage(m_destStorageId));
 
         // Attempt to delete any leftover placeholders
-        try {
-            contentStorage->DeletePlaceholder(*(NcmPlaceHolderId*)&ncaId);
+        try
+        {
+            contentStorage->DeletePlaceholder(*(NcmPlaceHolderId *)&ncaId);
         }
-        catch (...) {}
+        catch (...)
+        {
+        }
         // Attempt to delete leftover ncas
-        try {
+        try
+        {
             contentStorage->Delete(ncaId);
         }
-        catch (...) {}
+        catch (...)
+        {
+        }
 
         LOG_DEBUG("Size: 0x%lx\n", ncaSize);
 
         if (inst::config::validateNCAs && !m_declinedValidation)
         {
-            tin::install::NcaHeader* header = new NcaHeader;
+            tin::install::NcaHeader *header = new NcaHeader;
             m_NSP->BufferData(header, m_NSP->GetDataOffset() + fileEntry->dataOffset, sizeof(tin::install::NcaHeader));
 
             Crypto::AesXtr crypto(Crypto::Keys().headerKey, false);
@@ -116,7 +123,7 @@ namespace tin::install::nsp
 
             if (!Crypto::rsa2048PssVerify(&header->magic, 0x200, header->fixed_key_sig, Crypto::NCAHeaderSignature))
             {
-                std::thread audioThread(inst::util::playAudio,"romfs:/audio/bark.wav");
+                std::thread audioThread(inst::util::playAudio, "romfs:/audio/smw_pause.wav");
                 int rc = inst::ui::mainApp->CreateShowDialog("inst.nca_verify.title"_lang, "inst.nca_verify.desc"_lang, {"common.cancel"_lang, "inst.nca_verify.opt1"_lang}, false);
                 audioThread.join();
                 if (rc != 1)
@@ -132,7 +139,7 @@ namespace tin::install::nsp
 
         try
         {
-            contentStorage->Register(*(NcmPlaceHolderId*)&ncaId, ncaId);
+            contentStorage->Register(*(NcmPlaceHolderId *)&ncaId, ncaId);
         }
         catch (...)
         {
@@ -141,20 +148,23 @@ namespace tin::install::nsp
 
         try
         {
-            contentStorage->DeletePlaceholder(*(NcmPlaceHolderId*)&ncaId);
+            contentStorage->DeletePlaceholder(*(NcmPlaceHolderId *)&ncaId);
         }
-        catch (...) {}
+        catch (...)
+        {
+        }
     }
 
     void NSPInstall::InstallTicketCert()
     {
         // Read the tik files and put it into a buffer
-        std::vector<const PFS0FileEntry*> tikFileEntries = m_NSP->GetFileEntriesByExtension("tik");
-        std::vector<const PFS0FileEntry*> certFileEntries = m_NSP->GetFileEntriesByExtension("cert");
+        std::vector<const PFS0FileEntry *> tikFileEntries = m_NSP->GetFileEntriesByExtension("tik");
+        std::vector<const PFS0FileEntry *> certFileEntries = m_NSP->GetFileEntriesByExtension("cert");
 
         for (size_t i = 0; i < tikFileEntries.size(); i++)
         {
-            if (tikFileEntries[i] == nullptr) {
+            if (tikFileEntries[i] == nullptr)
+            {
                 LOG_DEBUG("Remote tik file is missing.\n");
                 THROW_FORMAT("Remote tik file is not present!");
             }
@@ -179,4 +189,4 @@ namespace tin::install::nsp
             ASSERT_OK(esImportTicket(tikBuf.get(), tikSize, certBuf.get(), certSize), "Failed to import ticket");
         }
     }
-}
+} // namespace tin::install::nsp

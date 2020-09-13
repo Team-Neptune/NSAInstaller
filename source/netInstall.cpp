@@ -49,13 +49,16 @@ const int REMOTE_INSTALL_PORT = 2000;
 static int m_serverSocket = 0;
 static int m_clientSocket = 0;
 
-namespace inst::ui {
+namespace inst::ui
+{
     extern MainApplication *mainApp;
 }
 
-namespace netInstStuff{
+namespace netInstStuff
+{
 
-    void InitializeServerSocket() try
+    void InitializeServerSocket()
+    try
     {
         // Create a socket
         m_serverSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_IP);
@@ -70,7 +73,7 @@ namespace netInstStuff{
         server.sin_port = htons(REMOTE_INSTALL_PORT);
         server.sin_addr.s_addr = htonl(INADDR_ANY);
 
-        if (bind(m_serverSocket, (struct sockaddr*) &server, sizeof(server)) < 0)
+        if (bind(m_serverSocket, (struct sockaddr *)&server, sizeof(server)) < 0)
         {
             THROW_FORMAT("Failed to bind server socket. Error code: %u\n", errno);
         }
@@ -78,12 +81,12 @@ namespace netInstStuff{
         // Set as non-blocking
         fcntl(m_serverSocket, F_SETFL, fcntl(m_serverSocket, F_GETFL, 0) | O_NONBLOCK);
 
-        if (listen(m_serverSocket, 5) < 0) 
+        if (listen(m_serverSocket, 5) < 0)
         {
             THROW_FORMAT("Failed to listen on server socket. Error code: %u\n", errno);
         }
     }
-    catch (std::exception& e)
+    catch (std::exception &e)
     {
         LOG_DEBUG("Failed to initialize server socket!\n");
         fprintf(stdout, "%s", e.what());
@@ -115,37 +118,49 @@ namespace netInstStuff{
         bool nspInstalled = true;
         NcmStorageId m_destStorageId = NcmStorageId_SdCard;
 
-        if (ourStorage) m_destStorageId = NcmStorageId_BuiltInUser;
+        if (ourStorage)
+            m_destStorageId = NcmStorageId_BuiltInUser;
         unsigned int urlItr;
 
         std::vector<std::string> urlNames;
-        if (urlListAltNames.size() > 0) {
-            for (long unsigned int i = 0; i < urlListAltNames.size(); i++) {
+        if (urlListAltNames.size() > 0)
+        {
+            for (long unsigned int i = 0; i < urlListAltNames.size(); i++)
+            {
                 urlNames.push_back(inst::util::shortenString(urlListAltNames[i], 38, true));
             }
-        } else {
-            for (long unsigned int i = 0; i < ourUrlList.size(); i++) {
+        }
+        else
+        {
+            for (long unsigned int i = 0; i < ourUrlList.size(); i++)
+            {
                 urlNames.push_back(inst::util::shortenString(inst::util::formatUrlString(ourUrlList[i]), 38, true));
             }
         }
 
         std::vector<int> previousClockValues;
-        if (inst::config::overClock) {
+        if (inst::config::overClock)
+        {
             previousClockValues.push_back(inst::util::setClockSpeed(0, 1785000000)[0]);
             previousClockValues.push_back(inst::util::setClockSpeed(1, 76800000)[0]);
             previousClockValues.push_back(inst::util::setClockSpeed(2, 1600000000)[0]);
         }
 
-        try {
-            for (urlItr = 0; urlItr < ourUrlList.size(); urlItr++) {
+        try
+        {
+            for (urlItr = 0; urlItr < ourUrlList.size(); urlItr++)
+            {
                 LOG_DEBUG("%s %s\n", "Install request from", ourUrlList[urlItr].c_str());
                 inst::ui::instPage::setTopInstInfoText("inst.info_page.top_info0"_lang + urlNames[urlItr] + ourSource);
                 std::unique_ptr<tin::install::Install> installTask;
 
-                if (inst::curl::downloadToBuffer(ourUrlList[urlItr], 0x100, 0x103) == "HEAD") {
+                if (inst::curl::downloadToBuffer(ourUrlList[urlItr], 0x100, 0x103) == "HEAD")
+                {
                     auto httpXCI = std::make_shared<tin::install::xci::HTTPXCI>(ourUrlList[urlItr]);
                     installTask = std::make_unique<tin::install::xci::XCIInstallTask>(m_destStorageId, inst::config::ignoreReqVers, httpXCI);
-                } else {
+                }
+                else
+                {
                     auto httpNSP = std::make_shared<tin::install::nsp::HTTPNSP>(ourUrlList[urlItr]);
                     installTask = std::make_unique<tin::install::nsp::NSPInstall>(m_destStorageId, inst::config::ignoreReqVers, httpNSP);
                 }
@@ -157,19 +172,21 @@ namespace netInstStuff{
                 installTask->Begin();
             }
         }
-        catch (std::exception& e) {
+        catch (std::exception &e)
+        {
             LOG_DEBUG("Failed to install");
             LOG_DEBUG("%s", e.what());
             fprintf(stdout, "%s", e.what());
             inst::ui::instPage::setInstInfoText("inst.info_page.failed"_lang + urlNames[urlItr]);
             inst::ui::instPage::setInstBarPerc(0);
-            std::thread audioThread(inst::util::playAudio,"romfs:/audio/bark.wav");
+            std::thread audioThread(inst::util::playAudio, "romfs:/audio/smw_pause.wav");
             inst::ui::mainApp->CreateShowDialog("inst.info_page.failed"_lang + urlNames[urlItr] + "!", "inst.info_page.failed_desc"_lang + "\n\n" + (std::string)e.what(), {"common.ok"_lang}, true);
             audioThread.join();
             nspInstalled = false;
         }
 
-        if (previousClockValues.size() > 0) {
+        if (previousClockValues.size() > 0)
+        {
             inst::util::setClockSpeed(0, previousClockValues[0]);
             inst::util::setClockSpeed(1, previousClockValues[1]);
             inst::util::setClockSpeed(2, previousClockValues[2]);
@@ -180,15 +197,18 @@ namespace netInstStuff{
         u8 ack = 0;
         tin::network::WaitSendNetworkData(m_clientSocket, &ack, sizeof(u8));
 
-        if(nspInstalled) {
+        if (nspInstalled)
+        {
             inst::ui::instPage::setInstInfoText("inst.info_page.complete"_lang);
             inst::ui::instPage::setInstBarPerc(100);
-            std::thread audioThread(inst::util::playAudio,"romfs:/audio/awoo.wav");
-            if (ourUrlList.size() > 1) inst::ui::mainApp->CreateShowDialog(std::to_string(ourUrlList.size()) + "inst.info_page.desc0"_lang, Language::GetRandomMsg(), {"common.ok"_lang}, true);
-            else inst::ui::mainApp->CreateShowDialog(urlNames[0] + "inst.info_page.desc1"_lang, Language::GetRandomMsg(), {"common.ok"_lang}, true);
+            std::thread audioThread(inst::util::playAudio, "romfs:/audio/smw_1-up.wav");
+            if (ourUrlList.size() > 1)
+                inst::ui::mainApp->CreateShowDialog(std::to_string(ourUrlList.size()) + "inst.info_page.desc0"_lang, Language::GetRandomMsg(), {"common.ok"_lang}, true);
+            else
+                inst::ui::mainApp->CreateShowDialog(urlNames[0] + "inst.info_page.desc1"_lang, Language::GetRandomMsg(), {"common.ok"_lang}, true);
             audioThread.join();
         }
-        
+
         LOG_DEBUG("Done");
         inst::ui::instPage::loadMainMenu();
         inst::util::deinitInstallServices();
@@ -223,14 +243,15 @@ namespace netInstStuff{
             LOG_DEBUG("%s %s\n", "Switch IP is ", ourIPAddress.c_str());
             LOG_DEBUG("%s\n", "Waiting for network");
             LOG_DEBUG("%s\n", "B to cancel");
-            
+
             std::vector<std::string> urls;
 
             while (true)
             {
                 // If we don't update the UI occasionally the Switch basically crashes on this screen if you press the home button
                 u64 newTime = armGetSystemTick();
-                if (newTime - startTime >= freq * 0.25) {
+                if (newTime - startTime >= freq * 0.25)
+                {
                     startTime = newTime;
                     inst::ui::mainApp->CallForRender();
                 }
@@ -255,7 +276,7 @@ namespace netInstStuff{
                 struct sockaddr_in client;
                 socklen_t clientLen = sizeof(client);
 
-                m_clientSocket = accept(m_serverSocket, (struct sockaddr*)&client, &clientLen);
+                m_clientSocket = accept(m_serverSocket, (struct sockaddr *)&client, &clientLen);
 
                 if (m_clientSocket >= 0)
                 {
@@ -272,8 +293,8 @@ namespace netInstStuff{
                     }
 
                     // Make sure the last string is null terminated
-                    auto urlBuf = std::make_unique<char[]>(size+1);
-                    memset(urlBuf.get(), 0, size+1);
+                    auto urlBuf = std::make_unique<char[]>(size + 1);
+                    memset(urlBuf.get(), 0, size + 1);
 
                     tin::network::WaitReceiveNetworkData(m_clientSocket, urlBuf.get(), size);
 
@@ -281,7 +302,8 @@ namespace netInstStuff{
                     std::stringstream urlStream(urlBuf.get());
                     std::string segment;
 
-                    while (std::getline(urlStream, segment, '\n')) urls.push_back(segment);
+                    while (std::getline(urlStream, segment, '\n'))
+                        urls.push_back(segment);
                     std::sort(urls.begin(), urls.end(), inst::util::ignoreCaseCompare);
 
                     break;
@@ -293,9 +315,8 @@ namespace netInstStuff{
             }
 
             return urls;
-
         }
-        catch (std::runtime_error& e)
+        catch (std::runtime_error &e)
         {
             LOG_DEBUG("Failed to perform remote install!\n");
             LOG_DEBUG("%s", e.what());
@@ -304,4 +325,4 @@ namespace netInstStuff{
             return {};
         }
     }
-}
+} // namespace netInstStuff

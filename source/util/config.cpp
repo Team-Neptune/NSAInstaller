@@ -3,7 +3,8 @@
 #include "util/config.hpp"
 #include "util/json.hpp"
 
-namespace inst::config {
+namespace inst::config
+{
     std::string gAuthKey;
     std::string sigPatchesUrl;
     std::vector<std::string> updateInfo;
@@ -16,7 +17,8 @@ namespace inst::config {
     bool usbAck;
     bool validateNCAs;
 
-    void setConfig() {
+    void setConfig()
+    {
         nlohmann::json j = {
             {"autoUpdate", autoUpdate},
             {"deletePrompt", deletePrompt},
@@ -27,14 +29,15 @@ namespace inst::config {
             {"overClock", overClock},
             {"sigPatchesUrl", sigPatchesUrl},
             {"usbAck", usbAck},
-            {"validateNCAs", validateNCAs}
-        };
+            {"validateNCAs", validateNCAs}};
         std::ofstream file(inst::config::configPath);
         file << std::setw(4) << j << std::endl;
     }
 
-    void parseConfig() {
-        try {
+    void parseConfig()
+    {
+        try
+        {
             std::ifstream file(inst::config::configPath);
             nlohmann::json j;
             file >> j;
@@ -49,14 +52,15 @@ namespace inst::config {
             usbAck = j["usbAck"].get<bool>();
             validateNCAs = j["validateNCAs"].get<bool>();
         }
-        catch (...) {
+        catch (...)
+        {
             // If loading values from the config fails, we just load the defaults and overwrite the old config
-            gAuthKey = {0x41,0x49,0x7a,0x61,0x53,0x79,0x42,0x4d,0x71,0x76,0x34,0x64,0x58,0x6e,0x54,0x4a,0x4f,0x47,0x51,0x74,0x5a,0x5a,0x53,0x33,0x43,0x42,0x6a,0x76,0x66,0x37,0x34,0x38,0x51,0x76,0x78,0x53,0x7a,0x46,0x30};
+            gAuthKey = {0x41, 0x49, 0x7a, 0x61, 0x53, 0x79, 0x42, 0x4d, 0x71, 0x76, 0x34, 0x64, 0x58, 0x6e, 0x54, 0x4a, 0x4f, 0x47, 0x51, 0x74, 0x5a, 0x5a, 0x53, 0x33, 0x43, 0x42, 0x6a, 0x76, 0x66, 0x37, 0x34, 0x38, 0x51, 0x76, 0x78, 0x53, 0x7a, 0x46, 0x30};
             sigPatchesUrl = "https://github.com/Huntereb/Awoo-Installer/releases/download/SignaturePatches/patches.zip";
             languageSetting = 99;
-            autoUpdate = true;
+            autoUpdate = false;
             deletePrompt = true;
-            gayMode = false;
+            gayMode = true;
             ignoreReqVers = true;
             overClock = false;
             usbAck = false;
@@ -64,4 +68,4 @@ namespace inst::config {
             setConfig();
         }
     }
-}
+} // namespace inst::config
