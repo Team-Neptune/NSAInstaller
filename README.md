@@ -1,4 +1,4 @@
-# NSXInstaller
+# NSAInstaller
 A No-Bullshit NSP, NSZ, XCI, and XCZ Installer for Nintendo Switch based on the Awoo-Installer
 
 ![Awoo Installer Main Menu](https://i.imgur.com/XBrcqQp.jpg)

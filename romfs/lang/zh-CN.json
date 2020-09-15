@@ -25,7 +25,7 @@
         },
         "applet": {
             "title": "不支持 Applet 模式",
-            "desc": "在 Applet 模式下使用 NSXInstaller 可能会遇到问题，\n如果遇到问题，请切换 NSXInstaller 的运行模式！\n(退回主界面，按住 \ue0e5 并打开任意游戏，进入 hbmenu 后再打开 NSXInstaller 即可)"
+            "desc": "在 Applet 模式下使用 NSAInstaller 可能会遇到问题，\n如果遇到问题，请切换 NSAInstaller 的运行模式！\n(退回主界面，按住 \ue0e5 并打开任意游戏，进入 hbmenu 后再打开 NSAInstaller 即可)"
         },
         "buttons": "\ue0e0 选择    \ue0e1 退出"
     },
@@ -33,7 +33,7 @@
         "net": {
             "help": {
                 "title": "帮助",
-                "desc": "可以使用下列工具远程安装文件，例如在 Tinfoil 模式下使用 NS-USBloader。\n如想向 Switch 发送文件，打开电脑或者移动设备上任一工具软件，\n输入屏幕上显示的 Switch IP 地址，选择文件，然后上传到您的主机即可！\n如果您使用的工具软件不支持选择特定文件类型，请尝试更改文件扩展名。\nNSXInstaller 在通过网络安装不限制文件扩展名！\n\n如果以上无效，请复制文件到 SD 卡并在主菜单中选择\"通过 SD 卡安装\"！"
+                "desc": "可以使用下列工具远程安装文件，例如在 Tinfoil 模式下使用 NS-USBloader。\n如想向 Switch 发送文件，打开电脑或者移动设备上任一工具软件，\n输入屏幕上显示的 Switch IP 地址，选择文件，然后上传到您的主机即可！\n如果您使用的工具软件不支持选择特定文件类型，请尝试更改文件扩展名。\nNSAInstaller 在通过网络安装不限制文件扩展名！\n\n如果以上无效，请复制文件到 SD 卡并在主菜单中选择\"通过 SD 卡安装\"！"
             },
             "src": {
                 "title": "请选择安装来源？",
@@ -103,7 +103,7 @@
         },
         "nca_verify": {
             "title": "检测到无效 NCA 签名！",
-            "desc": "请确认签名不正确的文件来源可靠。\n包含整合 XCI 和 DLC 解锁器的文件将始终显示此警告。\n您可以在 NSXInstaller 设置中禁用此验证。\n\n是否继续安装？",
+            "desc": "请确认签名不正确的文件来源可靠。\n包含整合 XCI 和 DLC 解锁器的文件将始终显示此警告。\n您可以在 NSAInstaller 设置中禁用此验证。\n\n是否继续安装？",
             "opt1": "是的，我已明白其中风险",
             "error": "请求的 NCA 没有正确签名："
         },
@@ -121,7 +121,7 @@
         "backup_failed": "无法备份 Hekate patch.ini！是否继续？",
         "backup_failed_desc": "如果您不使用 Hekate，请忽略此警告。",
         "download_failed": "无法下载签名补丁",
-        "download_failed_desc": "您可能在 NSXInstaller 设置中设定了无效来源，\n或者来源可能暂时无法访问。",
+        "download_failed_desc": "您可能在 NSAInstaller 设置中设定了无效来源，\n或者来源可能暂时无法访问。",
         "version_text2": "您的签名补丁已更新到适配 HOS 版本 ",
         "install_complete": "安装完成！",
         "complete_desc": "重启主机并应用",
@@ -140,11 +140,11 @@
             "nca_verify": "安装前验证 NCA 签名",
             "boost_mode": "安装时启用\"增强模式\"",
             "ask_delete": "安装后询问文件删除",
-            "auto_update": "自动检查 NSXInstaller 更新",
+            "auto_update": "自动检查 NSAInstaller 更新",
             "gay_option": "基友模式",
             "sig_url": "签名补丁源链接 (URL)：",
             "language": "语言：",
-            "check_update": "检查 NSXInstaller 更新",
+            "check_update": "检查 NSAInstaller 更新",
             "credits": "致谢"
         },
         "nca_warn": {
@@ -155,28 +155,28 @@
         "sig_hint": "输入签名补丁源链接 (URL)",
         "update": {
             "title": "有更新可用",
-            "desc0": "NSXInstaller ",
+            "desc0": "NSAInstaller ",
             "desc1": " 存在可用更新！是否更新？",
             "opt0": "更新",
-            "top_info": "正在更新 NSXInstaller ",
-            "bot_info": "正在下载 NSXInstaller ",
-            "bot_info2": "正在解压 NSXInstaller ",
+            "top_info": "正在更新 NSAInstaller ",
+            "bot_info": "正在下载 NSAInstaller ",
+            "bot_info2": "正在解压 NSAInstaller ",
             "complete": "更新完成！",
             "failed": "更新失败！",
             "end_desc": "软件即将被关闭。",
             "title_check_fail": "没有发现更新",
-            "desc_check_fail": "当前 NSXInstaller 已是最新版！"
+            "desc_check_fail": "当前 NSAInstaller 已是最新版！"
         },
         "credits": {
             "title": "致谢以下朋友！",
-            "desc": "- Huntereb & HookedBehemoth for the original NSXInstaller \n- XorTroll for the plutonium framework"
+            "desc": "- Huntereb & HookedBehemoth for the original NSAInstaller \n- XorTroll for the plutonium framework"
         },
         "language": {
-            "title": "选择 NSXInstaller 语言",
+            "title": "选择 NSAInstaller 语言",
             "desc": "软件将在更改语言后关闭，按 \ue0e1 取消。",
             "system_language": "系统默认"
         },
-        "title": "更改 NSXInstaller 设置！",
+        "title": "更改 NSAInstaller 设置！",
         "buttons": "\ue0e0 选择/更改    \ue0e1 取消"
     },
     "common": {

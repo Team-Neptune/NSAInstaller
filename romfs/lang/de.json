@@ -25,7 +25,7 @@
         },
         "applet": {
             "title": "Applet-Modus wird nicht unterstützt",
-            "desc": "Es kann zu Problemen bei der Verwendung des NSXInstaller im Applet-Modus kommen.\nWenn du Probleme hast, starte den NSXInstaller über einen installierten Titel (halte R gedrückt, während du ein Spiel startest)!"
+            "desc": "Es kann zu Problemen bei der Verwendung des NSAInstaller im Applet-Modus kommen.\nWenn du Probleme hast, starte den NSAInstaller über einen installierten Titel (halte R gedrückt, während du ein Spiel startest)!"
         },
         "buttons": "\ue0e0 Auswählen    \ue0e1 Beenden"
     },
@@ -33,7 +33,7 @@
         "net": {
             "help": {
                 "title": "Hilfe",
-                "desc": "Dateien können von anderen Geräten aus mit Tools wie NS-USBloader im\nTinfoil-Modus installiert werden. Um Dateien an deine Switch zu senden, öffne\neins dieser Programme auf deinem PC oder mobilen Gerät. Gebe die IP-Adresse\ndeiner Switches ein (auf dem Bildschirm aufgelistet), wähle die Dateien\naus und lade sie dann auf die Konsole hoch! Wenn die von dir verwendete\nSoftware dir nicht erlaubt, bestimmte Dateitypen auszuwählen.\nVersuche die Dateiendung in etwas umzubenennen, dass sie akzeptiert. Der NSXInstaller\nprüft keine Dateiendungen bei Netzinstallationen!\n\nFalls das nicht klappt, kopiere einfach deine Dateien auf die SD-Karte\nund versuche die Option \"Von SD-Karte installieren\" im Hauptmenü!"
+                "desc": "Dateien können von anderen Geräten aus mit Tools wie NS-USBloader im\nTinfoil-Modus installiert werden. Um Dateien an deine Switch zu senden, öffne\neins dieser Programme auf deinem PC oder mobilen Gerät. Gebe die IP-Adresse\ndeiner Switches ein (auf dem Bildschirm aufgelistet), wähle die Dateien\naus und lade sie dann auf die Konsole hoch! Wenn die von dir verwendete\nSoftware dir nicht erlaubt, bestimmte Dateitypen auszuwählen.\nVersuche die Dateiendung in etwas umzubenennen, dass sie akzeptiert. Der NSAInstaller\nprüft keine Dateiendungen bei Netzinstallationen!\n\nFalls das nicht klappt, kopiere einfach deine Dateien auf die SD-Karte\nund versuche die Option \"Von SD-Karte installieren\" im Hauptmenü!"
             },
             "src": {
                 "title": "Von wo aus willst du installieren?",
@@ -103,7 +103,7 @@
         },
         "nca_verify": {
             "title": "Ungültige NCA-Signatur erkannt!",
-            "desc": "Unsachgemäß signierte Software sollte nur von vertrauenswürdigen Quellen\ninstalliert werden. Dateien von gepackten Spiele Modulen und DLC-Freischaltung enthalten,\nwerden immer diese Warnung anzeigen. Sie können diese Prüfung in den Einstellungen des NSXInstaller deaktivieren.\nSind Sie sicher, dass Sie die Installation fortsetzen möchten?",
+            "desc": "Unsachgemäß signierte Software sollte nur von vertrauenswürdigen Quellen\ninstalliert werden. Dateien von gepackten Spiele Modulen und DLC-Freischaltung enthalten,\nwerden immer diese Warnung anzeigen. Sie können diese Prüfung in den Einstellungen des NSAInstaller deaktivieren.\nSind Sie sicher, dass Sie die Installation fortsetzen möchten?",
             "opt1": "Ja, ich verstehe die Risiken",
             "error": "Die gewünschte NCA ist nicht richtig signiert: "
         },
@@ -121,7 +121,7 @@
         "backup_failed": "Konnte die hekate patches.ini nicht finden! Trotzdem installieren?",
         "backup_failed_desc": "Falls du hekate nicht nutzt, kannst du diese Warnung ignorieren.",
         "download_failed": "Konnte die Signatur Patches nicht herunterladen",
-        "download_failed_desc": "Eventuell hast du eine ungültige Quelle in den Einstellung\nvom NSXInstaller eingestellt oder der Host ist derzeitig offline.",
+        "download_failed_desc": "Eventuell hast du eine ungültige Quelle in den Einstellung\nvom NSAInstaller eingestellt oder der Host ist derzeitig offline.",
         "version_text2": "Deine Signatur Patches wurden aktualisiert, für deine HOS Version ",
         "install_complete": "Installation abgeschlossen!",
         "complete_desc": "Starte die Konsole neu um die Änderung zu übernehmen",
@@ -140,11 +140,11 @@
             "nca_verify": "Verifiziere NCA Signatur vor der Installation",
             "boost_mode": "Aktiviere \"Boost-Modus\" während der Installation",
             "ask_delete": "Frage ob installierte Titel gelöscht werden sollen",
-            "auto_update": "Suche automatisch nach Updates für NSXInstaller",
+            "auto_update": "Suche automatisch nach Updates für NSAInstaller",
             "gay_option": "Entferne Anime",
             "sig_url": "Signatur Patches URL: ",
             "language": "Sprache: ",
-            "check_update": "Suche nach Updates für NSXInstaller",
+            "check_update": "Suche nach Updates für NSAInstaller",
             "credits": "Anerkennung"
         },
         "nca_warn": {
@@ -155,28 +155,28 @@
         "sig_hint": "Gebe eine URL an, um Signatur Patches zu beziehen",
         "update": {
             "title": "Neue Version verfügbar",
-            "desc0": "NSXInstaller ",
+            "desc0": "NSAInstaller ",
             "desc1": " ist jetzt verfügbar! Bereit zu aktualisieren?",
             "opt0": "Aktualisieren",
-            "top_info": "Aktualisierung zu NSXInstaller ",
-            "bot_info": "Beziehe NSXInstaller ",
-            "bot_info2": "Extrahiere NSXInstaller ",
+            "top_info": "Aktualisierung zu NSAInstaller ",
+            "bot_info": "Beziehe NSAInstaller ",
+            "bot_info2": "Extrahiere NSAInstaller ",
             "complete": "Aktualisierung vollständig!",
             "failed": "Aktualisierung fehlgeschlagen!",
             "end_desc": "Die Software wird nun beendet.",
             "title_check_fail": "Keine Aktualisierungen gefunden",
-            "desc_check_fail": "Du bist auf der aktuellsten Version des NSXInstaller!"
+            "desc_check_fail": "Du bist auf der aktuellsten Version des NSAInstaller!"
         },
         "credits": {
             "title": "Vielen Dank an die folgenden Leute!",
-            "desc": "- Huntereb & HookedBehemoth for the original NSXInstaller \n- XorTroll for the plutonium framework"
+            "desc": "- Huntereb & HookedBehemoth for the original NSAInstaller \n- XorTroll for the plutonium framework"
         },
         "language": {
-            "title": "Wähle NSXInstaller Sprache",
+            "title": "Wähle NSAInstaller Sprache",
             "desc": "Die Software wird danach beendet. Drücke B um den Vorgang abzubrechen.",
             "system_language": "System"
         },
-        "title": "Ändere NSXInstaller Einstellungen!",
+        "title": "Ändere NSAInstaller Einstellungen!",
         "buttons": "\ue0e0 Auswählen/Ändern    \ue0e1 Abbrechen "
     },
     "common": {

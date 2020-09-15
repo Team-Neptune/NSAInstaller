@@ -4,7 +4,7 @@
 
 namespace inst::config
 {
-    static const std::string appDir = "sdmc:/switch/NSXInstaller";
+    static const std::string appDir = "sdmc:/switch/NSAInstaller";
     static const std::string configPath = appDir + "/config.json";
     static const std::string appVersion = "1.0.0";
 

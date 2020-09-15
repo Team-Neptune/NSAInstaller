@@ -25,7 +25,7 @@
         },
         "applet": {
             "title": "Applet Mode not supported",
-            "desc": "You may experience issues using NSXInstaller in Applet Mode. If you do\nhave problems, please switch to running NSXInstaller over an installed\ntitle (hold R while starting a game)!"
+            "desc": "You may experience issues using NSAInstaller in Applet Mode. If you do\nhave problems, please switch to running NSAInstaller over an installed\ntitle (hold R while starting a game)!"
         },
         "buttons": "\ue0e0 Select    \ue0e1 Exit"
     },
@@ -33,7 +33,7 @@
         "net": {
             "help": {
                 "title": "Help",
-                "desc": "Files can be installed remotely from your other devices using tools such\nas NS-USBloader in Tinfoil mode. To send files to your Switch, open one\nof these pieces of software on your PC or mobile device, input your\nSwitch's IP address (listed on-screen), select your files, then upload\nto your console! If the software you're using won't let you select\nspecific file types, try renaming the extension to something it accepts.\nNSXInstaller doesn't care about file extensions during net installations!\n\nIf you can't figure it out, just copy your files to your SD card and try\nthe \"Install from SD Card\" option on the main menu!"
+                "desc": "Files can be installed remotely from your other devices using tools such\nas NS-USBloader in Tinfoil mode. To send files to your Switch, open one\nof these pieces of software on your PC or mobile device, input your\nSwitch's IP address (listed on-screen), select your files, then upload\nto your console! If the software you're using won't let you select\nspecific file types, try renaming the extension to something it accepts.\nNSAInstaller doesn't care about file extensions during net installations!\n\nIf you can't figure it out, just copy your files to your SD card and try\nthe \"Install from SD Card\" option on the main menu!"
             },
             "src": {
                 "title": "Where do you want to install from?",
@@ -103,7 +103,7 @@
         },
         "nca_verify": {
             "title": "Invalid NCA signature detected!",
-            "desc": "Improperly signed software should only be installed from trustworthy\nsources. Files containing cartridge repacks and DLC unlockers will always\nshow this warning. You can disable this check in NSXInstaller's settings.\n\nAre you sure you want to continue the installation?",
+            "desc": "Improperly signed software should only be installed from trustworthy\nsources. Files containing cartridge repacks and DLC unlockers will always\nshow this warning. You can disable this check in NSAInstaller's settings.\n\nAre you sure you want to continue the installation?",
             "opt1": "Yes, I understand the risks",
             "error": "The requested NCA is not properly signed: "
         },
@@ -121,7 +121,7 @@
         "backup_failed": "Could not back up Hekate patches.ini! Install anyway?",
         "backup_failed_desc": "If you don't use Hekate you can ignore this warning.",
         "download_failed": "Could not download signature patches",
-        "download_failed_desc": "You may have supplied an invalid source in NSXInstaller's settings,\nor the host may just be down right now.",
+        "download_failed_desc": "You may have supplied an invalid source in NSAInstaller's settings,\nor the host may just be down right now.",
         "version_text2": "Your signature patches have been updated for up to HOS version ",
         "install_complete": "Install complete!",
         "complete_desc": "Restart your console to apply",
@@ -140,11 +140,11 @@
             "nca_verify": "Verify NCA signatures before installation",
             "boost_mode": "Enable \"boost mode\" during installations",
             "ask_delete": "Ask to delete original files after installation",
-            "auto_update": "Check for updates to NSXInstaller automatically",
+            "auto_update": "Check for updates to NSAInstaller automatically",
             "gay_option": "Remove anime",
             "sig_url": "Signature patches source URL: ",
             "language": "Language: ",
-            "check_update": "Check for updates to NSXInstaller",
+            "check_update": "Check for updates to NSAInstaller",
             "credits": "Credits"
         },
         "nca_warn": {
@@ -155,28 +155,28 @@
         "sig_hint": "Enter the URL to obtain Signature Patches from",
         "update": {
             "title": "Update available",
-            "desc0": "NSXInstaller ",
+            "desc0": "NSAInstaller ",
             "desc1": " is available now! Ready to update?",
             "opt0": "Update",
-            "top_info": "Updating to NSXInstaller ",
-            "bot_info": "Downloading NSXInstaller ",
-            "bot_info2": "Extracting NSXInstaller ",
+            "top_info": "Updating to NSAInstaller ",
+            "bot_info": "Downloading NSAInstaller ",
+            "bot_info2": "Extracting NSAInstaller ",
             "complete": "Update complete!",
             "failed": "Update failed!",
             "end_desc": "The software will now be closed.",
             "title_check_fail": "No updates found",
-            "desc_check_fail": "You are on the latest version of NSXInstaller!"
+            "desc_check_fail": "You are on the latest version of NSAInstaller!"
         },
         "credits": {
             "title": "Thanks to the following people!",
-            "desc": "- Huntereb & HookedBehemoth for the original NSXInstaller \n- XorTroll for the plutonium framework"
+            "desc": "- Huntereb & HookedBehemoth for the original NSAInstaller \n- XorTroll for the plutonium framework"
         },
         "language": {
-            "title": "Select NSXInstaller's language",
+            "title": "Select NSAInstaller's language",
             "desc": "The software will be closed after changing languages. Press B to cancel.",
             "system_language": "System"
         },
-        "title": "Change NSXInstaller's settings!",
+        "title": "Change NSAInstaller's settings!",
         "buttons": "\ue0e0 Select/Change    \ue0e1 Cancel"
     },
     "common": {
