@@ -42,9 +42,9 @@ BUILD		:=	build
 SOURCES		:=	source source/ui source/data source/install source/nx source/nx/ipc source/util
 DATA		:=	data
 INCLUDES	:=	include include/ui include/data include/install include/nx include/nx/ipc include/util include/Plutonium/Plutonium/Output-switch/include
-APP_TITLE	:=	NSXInstaller
+APP_TITLE	:=	NSAInstaller
 APP_AUTHOR	:=	Team Neptune, Huntereb & Behemoth
-APP_VERSION	:=	1.0.0
+APP_VERSION	:=	1.0.1
 ROMFS		:=	romfs
 
 #---------------------------------------------------------------------------------
