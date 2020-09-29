@@ -90,7 +90,8 @@ namespace inst::ui
         this->optionMenu->AddItem(this->installMenuItem);
         this->optionMenu->AddItem(this->netInstallMenuItem);
         this->optionMenu->AddItem(this->usbInstallMenuItem);
-        //this->optionMenu->AddItem(this->sigPatchesMenuItem);
+        if (inst::config::sigPatchesUrl !=("NULL"))
+           		this->optionMenu->AddItem(this->sigPatchesMenuItem);
         this->optionMenu->AddItem(this->settingsMenuItem);
         this->optionMenu->AddItem(this->exitMenuItem);
         this->Add(this->optionMenu);
@@ -170,13 +171,13 @@ namespace inst::ui
             case 2:
                 MainPage::usbInstallMenuItem_Click();
                 break;
-            // case 3:
-            //     MainPage::sigPatchesMenuItem_Click();
-            //     break;
             case 3:
-                MainPage::settingsMenuItem_Click();
+                MainPage::sigPatchesMenuItem_Click();
                 break;
             case 4:
+                MainPage::settingsMenuItem_Click();
+                break;
+            case 5:
                 MainPage::exitMenuItem_Click();
                 break;
             default:
